@@ -33,6 +33,8 @@ jobs:
           echo test, and deploy your project.
           git remote add github "https://maorlx:$GITHUB_TOKEN@github.com/$GITHUB_REPOSITORY.git"
           git pull github ${GITHUB_REF} --ff-only
+          git config --global user.email "maor@epsagon.com"
+          git config --global user.name "Maor Levi"
           version=`cat version.go | egrep "const VERSION = " | tr -s ' ' | cut -d ' ' -f 4`
           minor=`echo $version | cut -d. -f2`
           major=`echo $version | cut -d. -f1`
